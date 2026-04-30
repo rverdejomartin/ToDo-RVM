@@ -11,6 +11,7 @@ const db = getFirestore();
 const auth = getAuth();
 
 const thingsToDo = useCollection(collection(db, 'thingsToDo'));
+const completados = useCollection(collection(db, "completados"));
 const mostrarHistorial = ref(false); 
 
 const tareasPendientes = computed(() => {
@@ -64,7 +65,7 @@ function volverUsuario() {
     </header>
 
     <main class="content-body">
-      <ListaRecordatorios :thingsToDo="thingsToDo" />
+      <ListaRecordatorios :thingsToDo="thingsToDo" :completados="completados"/>
     </main>
   </div>
 </template>
