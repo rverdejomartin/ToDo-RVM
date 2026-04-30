@@ -15,6 +15,7 @@ const modalVisible = ref(false);
 const modalEditar = ref(false);
 const tareaSeleccionada = ref(null);
 const nuevoNombre = ref('');
+var bucket = "ToDo-RVM";
 
 const tareasFiltradas = computed(() => {
   var lista = [];
@@ -115,7 +116,11 @@ async function cambiarPrioridad(thing, nuevaPrioridad) {
 }
 
 async function borrarTarea(thing) {
-    await deleteDoc(doc(db, 'thingsToDo', thing.id));
+  if (thing.imagenPath){
+    await supabase.storage.from(bucket).remove([thing.imagenPath]);
+  }
+
+  await deleteDoc(doc(db, 'thingsToDo', thing.id))
 }
 
 </script>

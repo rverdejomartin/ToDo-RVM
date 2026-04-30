@@ -53,7 +53,8 @@ async function agregarRecordatorio() {
       priority: prioridad.value,
       subida: new Date(),
       idUser: auth.currentUser.uid,
-      imagenUrl: data.publicUrl
+      imagenUrl: data.publicUrl,
+      imagenPath: archivo.value.name
     });
   }
 
