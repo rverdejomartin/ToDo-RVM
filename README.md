@@ -1,6 +1,6 @@
 # ToDo-RVM
 
-PUESTA EN PRODUCCION: <a href="https://todo-rvm.web.app" target="_blank">ToDo-RVM</a>
+PUESTA EN PRODUCCION: <a href="https://todo-rvm.web.app" target="_blank" rel="noopener noreferrer">ToDo-RVM</a>
 
 **ToDo-RVM** es una aplicación moderna de gestión de tareas diseñada bajo el concepto de **Single Page Application (SPA)**. Este proyecto demuestra la integración de dos potentes plataformas de backend (Firebase y Supabase) para ofrecer una experiencia de usuario fluida y robusta.
 
