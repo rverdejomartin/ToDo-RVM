@@ -21,13 +21,10 @@ const qCompletados = query(collection(db, 'completados'), where('idUser', '==', 
 const completados = useCollection(qCompletados);
 
 
-const usuarioInfo = computed(() => {
-    const user = auth.currentUser;
-    return {
-        nombre: user.displayName || user.email,
-        foto: user.photoURL || 'https://cdn-icons-png.flaticon.com/512/149/149071.png'
-    };
-});
+const usuarioInfo = {
+    nombre: localStorage.getItem('nombre'),
+    foto: localStorage.getItem('foto')
+};
 
 function borrarSesion() {
     signOut(auth).then(() => {

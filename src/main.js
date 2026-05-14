@@ -26,8 +26,12 @@ const auth = getAuth();
 onAuthStateChanged(auth, (user) => {
     if (user) {
         localStorage.setItem('uid', user.uid);
+        localStorage.setItem('nombre', user.displayName || user.email);
+        localStorage.setItem('foto', user.photoURL || 'https://cdn-icons-png.flaticon.com/512/149/149071.png');
     } else {
         localStorage.removeItem('uid');
+        localStorage.removeItem('nombre');
+        localStorage.removeItem('foto');
     }
 });
 
@@ -44,11 +48,12 @@ export const router = createRouter({
     routes,
 });
 
-router.beforeEach(async (to, from) => {
+router.beforeEach((to) => {
     const uid = localStorage.getItem('uid');
-
     if ((to.meta.requiresAuth && !uid) || (to.meta.requiresAdmin && uid !== ADMIN_UID)) {
         return '/';
+    } else if (to.path === '/' && uid) {
+        return '/recordatorios';
     }
 });
 
